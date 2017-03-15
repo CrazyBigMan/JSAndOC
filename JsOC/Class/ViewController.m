@@ -30,12 +30,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-//    NSString *pathStr = [[NSBundle mainBundle] pathForResource:@"jsoc" ofType:@"html"];
+    NSString *pathStr = [[NSBundle mainBundle] pathForResource:@"jsoc" ofType:@"html"];
     UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.frame];
-//    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:pathStr]]];
-    
-    // http://m.ixiangha.com:9812/Index/vipDemo   appCommon
-     [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://m.ixiangha.com:9812/Index/vipDemo"]]];
+    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:pathStr]]];
     webView.delegate = self;
     [self.view addSubview:webView];
     NSLog(@"haha");
@@ -57,9 +54,8 @@
     
     
     // js掉oc方法一 通过代理
-//    self.jsContext[@"show"] = self;
+    self.jsContext[@"show"] = self;
     
-    self.jsContext[@"appCommon"] = self;
     
     // 方法二通过block
     __weak typeof(self) weakSelf = self;
